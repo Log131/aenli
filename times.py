@@ -5,7 +5,6 @@ import schedule
 import datetime
 from start import bot
 import asyncio
-from war import bot_5
 import time
 
 
@@ -83,22 +82,6 @@ schedule.every(600).seconds.do(funcs_5)
 
 
 
-async def sends_():
-    try:
-        await bot_5.send_message(chat_id=-1001791109996, text='🌟Друзья! \n \n Напоминаем, что в СУТКИ можно писать ТОЛЬКО 1 ОТЗЫВ на каждой площадке. \n \n Увы, но если написать БОЛЕЕ ОДНОГО ОТЗЫВА, то велик шанс его удаления, а следовательно, и блокировка вашего аккаунта. \n \n Спасибо за понимание!')
-    except:
-        pass
-
-
-
-
-
-
-def funcs_555():
-    s = asyncio.get_event_loop()
-    s.run_until_complete(sends_())
-
-schedule.every().day.at('09:00').do(funcs_555)
 
 
 

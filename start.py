@@ -185,6 +185,9 @@ async def swelx_(msg: types.Message):
         await msg.answer('🎉', reply_markup=wel())
         await msg.delete()
 
+@dp.message_handler(commands=['card'])
+async def payments_(msg: types.Message):
+    await msg.answer('', parse_mode='Markdown')
 
 
 
@@ -222,7 +225,7 @@ async def sendx_(css: types.CallbackQuery):
             
                 await css.message.delete()
             else:
-                s = await bot.send_message(chat_id=-1001791109996, text=f' * 📈 {datas[1]}\n 👩‍🔧 Нужно людей - {datas[4]} \n 💴 Оплата - {datas[2]} \n 🏷 Описание : {datas[3]} \n ✉️ Писать - @{css.from_user.username}*', parse_mode='Markdown', reply_markup=row)
+                s = await bot.send_message(chat_id=-1001877519502, text=f' * 📈 {datas[1]}\n 👩‍🔧 Нужно людей - {datas[4]} \n 💴 Оплата - {datas[2]} \n 🏷 Описание : {datas[3]} \n ✉️ Писать - @{css.from_user.username}*', parse_mode='Markdown', reply_markup=row)
             
             #s_ = await bot.send_message(chat_id='@fludilkaotzivnichka', text=f' 📈 {datas[1]}\n 👩‍🔧 Нужно людей - {datas[4]} \n 💴 Оплата - {datas[2]} \n 🏷 Описание : {datas[3]} \n ✉️ Писать - @{css.from_user.username}')
             
@@ -238,7 +241,7 @@ async def sendx_(css: types.CallbackQuery):
                 async with tc.execute('SELECT * FROM iff WHERE user_id = ?', (css.from_user.id,)) as f_:
                     sends = await f_.fetchall()
             for i in sends:
-                await bot.edit_message_text(text=f'🔒 Набор закрыт, ожидайте следующие задания ❗️',chat_id=-1001791109996, message_id=i[1])
+                await bot.edit_message_text(text=f'🔒 Набор закрыт, ожидайте следующие задания ❗️',chat_id=-1001877519502, message_id=i[1])
                 #await bot.delete_message(chat_id='@fludilkaotzivnichka', message_id=i[2])
             async with aiosqlite.connect('teg.db') as tc:
                 await tc.execute('UPDATE users SET cases_ = ?, price = ?, zametka = ?, usersc = ? WHERE user_id = ?',(None, None, None, None, css.from_user.id,))
@@ -267,7 +270,7 @@ async def sends___(msg: types.Message):
 
 @dp.message_handler(text='📞 Связь с Гл.Админом')
 async def sends_____(msg: types.Message):
-    await msg.answer('📞 - @kaif_work')
+    await msg.answer('📞 - @LASEF_LAPOYW \n \n \n -Bot created by @log131 @kaif_work')
 
 
 
@@ -276,8 +279,8 @@ async def sends_____(msg: types.Message):
 @dp.message_handler(commands=['admin'])
 async def ads_(msg: types.Message):
    
-    chat_admins = await bot.get_chat_member(chat_id='@OwnerOtziv', user_id=msg.from_user.id)
-    if chat_admins.status == 'creator' or chat_admins.status == 'administrator':
+    
+    if msg.from_user.id == 1836567899 or msg.from_user.id == 1624519308:
         await msg.answer('Вы админ Комманды для чата модераторов - /del обнулить счетчик предупреждений - /war выдать предупреждение', reply_markup=ads_55())
     
     
@@ -297,8 +300,7 @@ async def search_(msg: types.Message, state: FSMContext):
         row = ReplyKeyboardMarkup(resize_keyboard=True)
         s = KeyboardButton(text='Отмена')
         row.add(s)
-        chat_admins = await bot.get_chat_member(chat_id='@OwnerOtziv', user_id=msg.from_user.id)
-        if chat_admins.status == 'creator' or chat_admins.status == 'administrator':
+        if msg.from_user.id == 1836567899 or msg.from_user.id == 1624519308:
             await msg.answer('Введите ник Пользователя без @', reply_markup=row)
             await searches_.search_start.set()
     except Exception as e:
@@ -335,8 +337,7 @@ async def state_search(msg: types.Message, state: FSMContext):
 async def admins_(msg: types.Message):
     try:
         row = InlineKeyboardMarkup()
-        chat_admins = await bot.get_chat_member(chat_id='@OwnerOtziv', user_id=msg.from_user.id)
-        if chat_admins.status == 'creator' or chat_admins.status == 'administrator':
+        if msg.from_user.id == 1836567899 or msg.from_user.id == 1624519308:
             async with aiosqlite.connect('teg.db') as tc:
                 async with tc.execute('SELECT * FROM users') as t:
                     x = await t.fetchall()
@@ -398,8 +399,7 @@ async def state_s_0(css: types.CallbackQuery):
 @dp.message_handler(text='Начать рассылку', state=None)
 async def spam_strsx(msg: types.Message, state: FSMContext):
 
-    chat_admins = await bot.get_chat_member(chat_id='@OwnerOtziv', user_id=msg.from_user.id)
-    if chat_admins.status == 'creator' or chat_admins.status == 'administrator':
+    if msg.from_user.id == 1836567899 or msg.from_user.id == 1624519308:
         x = ReplyKeyboardMarkup(resize_keyboard=True)
         x_0 = KeyboardButton(text='Отмена')
         x.add(x_0)
@@ -526,8 +526,7 @@ async def state_ads______(msg: types.Message, state: FSMContext):
             async with aiosqlite.connect('teg.db') as tc:
                 async with tc.execute('SELECT username FROM users WHERE user_id = ?', (data['add_xdx'],)) as t:
                     srs = await t.fetchone()
-            await bot.send_message(chat_id=6203509782, text=f'@{msg.from_user.username} Добавил - @{srs[0]} На {msg.text} Дней')
-            await bot.send_photo(chat_id=data['add_xdx'], photo='https://i.yapx.ru/V8QOQ.png', caption='Вам выдали админку 🔥🔥🔥')
+            await bot.send_message(chat_id=data['add_xdx'], text='Вам выдали подписку')
     
     except Exception as e:
         print(e)
@@ -553,7 +552,6 @@ async def remove_it(css: types.CallbackQuery):
         async with aiosqlite.connect('teg.db') as tc:
             async with tc.execute('SELECT username FROM users WHERE user_id = ? ', (int(s[1]),)) as t:
                 srs = await t.fetchone()
-        await bot.send_message(chat_id=6203509782, text=f'@{css.from_user.username} Удалил @{srs[0]} Из админов')
         async with aiosqlite.connect('teg.db') as tc:
                 await tc.execute('DELETE FROM users WHERE user_id = ?', (int(s[1]),))
                 await tc.commit()
@@ -575,25 +573,6 @@ async def remove_it(css: types.CallbackQuery):
 
 
 
-@dp.message_handler(commands=['rat'])
-async def rat_(msg: types.Message):
-
-    try:
-        chat_member = await bot.get_chat_member(chat_id='@OwnerOtziv', user_id=msg.from_user.id)
-        if chat_member.status == 'creator':
-            async with aiosqlite.connect('teg.db') as tc:
-                async with tc.execute('SELECT * FROM rat') as t:
-                    s = await t.fetchall()
-            for i in s:
-                time_ = datetime.datetime.strptime(i[4], '%Y-%m-%d %H:%M')
-                f = time_ - datetime.datetime.now()
-                fffff = f.days
-                await msg.answer(f'Админ - @{i[2]} добавил - @{i[1]} \n Добавил в - {i[3]} \n Выдал на - {abs(fffff) + 1} дней')
-        else:
-            await msg.answer('Отказано')
-
-    except Exception as e:
-        print(e)
 
 
 
