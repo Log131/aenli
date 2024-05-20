@@ -12,7 +12,7 @@ from datas import *
 
 
 
-token = '6021836757:AAFu1PVkjrjcG1R4sfQTBv79A8pYQQb-08Q'
+token = '7092954299:AAHuyLjlRpAqfMa8cZNJzo3z1fafUVdCEpg'
 
 bot = Bot(token=token)
 storage = MemoryStorage()
