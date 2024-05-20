@@ -4,26 +4,26 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardMar
 
 def wel():
    x = ReplyKeyboardMarkup(resize_keyboard=True)
-   profile = KeyboardButton(text='Профиль')
+   profile = KeyboardButton(text='🆔 Профиль')
    
-   cases = KeyboardButton(text='Наборы')
+   cases = KeyboardButton(text='🗂 Наборы')
 
 
 
+   archive = KeyboardButton(text='🗄 Дневник/Архив')
    
    
-   
-   admin = KeyboardButton(text='Связь с администрацией')
-   x.row(profile, cases)
+   admin = KeyboardButton(text='📞 Связь с Гл.Админом')
+   x.row(profile, archive, cases)
    x.row(admin)
    return x
 def casses():
    x = ReplyKeyboardMarkup(resize_keyboard=True)
-   x1 = KeyboardButton(text='Создать набор')
+   x1 = KeyboardButton(text='Открыть Набор')
 
-   x3 = KeyboardButton(text='Управление набором')
+   x3 = KeyboardButton(text='Мои Наборы')
 
-   xback = KeyboardButton(text='Назад')
+   xback = KeyboardButton(text='Главное Меню')
 
    x.row(x1, x3)
    x.row(xback)
@@ -33,9 +33,9 @@ def casses_():
    x = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
    x1 = KeyboardButton(text='Авито')
    x3 = KeyboardButton(text='Яндекс Карты')
-   x33 = KeyboardButton(text='Яндекс.Услуги')
+   x33 = KeyboardButton(text='Негатив Авито')
    x5 = KeyboardButton(text='2ГИС')
-   x55 = KeyboardButton(text='Google.Карты')
+   x55 = KeyboardButton(text='Zoon')
    
    x.row(x1, x3)
 
@@ -80,7 +80,7 @@ def archives():
 def ads_55():
    x = ReplyKeyboardMarkup(resize_keyboard=True)
    x5 = KeyboardButton(text='Список Админов')
-   x55 = KeyboardButton(text='Назад')
+   x55 = KeyboardButton(text='Главное Меню')
    x6 = KeyboardButton(text='Начать рассылку')
    x555 = KeyboardButton(text='Поиск Пользователя по нику')
    x.row(x5).row(x55).row(x6, x555)
